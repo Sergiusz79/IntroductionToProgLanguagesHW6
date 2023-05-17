@@ -3,19 +3,29 @@
 // Например: 0, 7, 8, -2, -2     -> 2
 //           1, -7, 567, 89, 223 -> 3
 
+int EnterArrLenght(int number)
+{
+    Console.WriteLine("Please enter number of numbers: ");
+
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("This is not number! Please enter number!");
+    }
+    return number;
+}
 
 void EnterNumbers(int[] arr)
 {
-int num;
-Console.WriteLine("Please enter numbers: ");
+    int num;
+    Console.WriteLine("Please enter numbers: ");
 
     for (int i = 0; i < arr.Length; i++)
     {
         while (!int.TryParse(Console.ReadLine(), out num))
         {
-        Console.WriteLine("This is not number! Please enter number!");
+            Console.WriteLine("This is not number! Please enter number!");
         }
-    arr[i] = num;
+        arr[i] = num;
     }
 }
 
@@ -33,9 +43,11 @@ void CheckForPositive(int[] arr)
 
 void Task041()
 {
-int[] arr = new int[8];
-EnterNumbers(arr);
-CheckForPositive(arr);
+    int number = 0;
+    int lenght = EnterArrLenght(number);
+    int[] arr = new int[lenght];
+    EnterNumbers(arr);
+    CheckForPositive(arr);
 }
 
 
